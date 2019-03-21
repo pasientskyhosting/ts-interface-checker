@@ -373,6 +373,7 @@ export const basicTypes: ITypeSuite = {
   undefined:  new BasicType((v) => (v === undefined), "is not undefined"),
   null:       new BasicType((v) => (v === null), "is not null"),
   never:      new BasicType((v) => false, "is unexpected"),
+  Date:       new BasicType((v) => (v instanceof Date || !isNaN(new Date(v).getTime())), "is not a Date")
 };
 
 // Support `Buffer` as type as well, but only if available (it is in nodejs, not in browsers).
